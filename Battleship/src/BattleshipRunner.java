@@ -34,91 +34,108 @@ public class BattleshipRunner
 								System.out.println("Okay then let's play!");
 								System.out.println("The computer has placed their ships and you have to try and sink all of them.");
 								System.out.println("The computer has a ship that is 3 squares long, two ships that are 2 squares long, and a ship that is 1 square long.");
+								System.out.println("If you hit the computer's ship, an X will appear. If you miss, a ~ will appear.");
 							boolean playing = true;
 							while (playing)
 									{
 									Scanner userInput3 = new Scanner(System.in);
 									System.out.println("What is the row you want to attack?");
 									int counter = 0;
-									String rowInput = userInput3.nextLine();
+									int rowInput = userInput3.nextInt();
+									int x = rowInput;
 									counter++;
-									rowInput = rowInput.substring(0,1);
 									int row;
-									rowInput.toUpperCase();
-									if (rowInput.equals("A"))
-												{
-												row = 0;
-												}
-									if (rowInput.equals("B"))
-												{
-												row = 1;
-												}
-									if (rowInput.equals("C"))
-												{
-												row = 2;
-												}
-									if (rowInput.equals("D"))
-												{
-												row = 3;
-												}
-									if (rowInput.equals("E"))
-												{
-												row = 4;
-												}
+									row = rowInput-1;
+									counter++;
 									Scanner userInput4 = new Scanner(System.in);
 									System.out.println("What is the column you want to attack?");
 									int columnInput = userInput4.nextInt();
+									int y = columnInput;
 									counter++;
 									int column;
 									column = columnInput-1;
-									if (rowInput.equals("A") && columnInput == 1)
+									if (rowInput == 1 && columnInput == 1)
 										{
 											System.out.println("You hit one of your opponents ships!");
-											Board.board[0][0] = "x";
+											Board.board[0][0] = "X";
 											Board.display();
 										}
-									else if (rowInput.equals("A") && columnInput == 2)
+									else if (rowInput == 1 && columnInput == 2)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[0][1] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("A") && columnInput == 3)
+									else if (rowInput == 1 && columnInput == 3)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[0][2] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("C") && columnInput == 3)
+									else if (rowInput == 3 && columnInput == 3)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[2][2] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("C") && columnInput == 4)
+									else if (rowInput == 3 && columnInput == 4)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[2][3] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("D") && columnInput == 2)
+									else if (rowInput == 4 && columnInput == 2)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[3][1] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("D") && columnInput == 5)
+									else if (rowInput == 4 && columnInput == 5)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[3][4] = "X";
+											Board.display();
 										}
-									else if (rowInput.equals("E") && columnInput == 5)
+									else if (rowInput == 5 && columnInput == 5)
 										{
 											System.out.println("You hit one of your opponents ships!");
+											Board.board[4][4] = "X";
+											Board.display();
 										}
 									else
 										{
 											System.out.println("You missed your opponent's ships!");
+											Board.board[x-1][y-1] = "~";
+											Board.display();
 											System.out.println("Try again!");
 										}
+									if (Board.board[0][0] =="X" && Board.board[0][1] =="X" && Board.board[0][2] =="X")
+										{
+											System.out.println("You sunk one of the computers ships!");
+										}
+									else if (Board.board[2][2] =="X" && Board.board[2][3] =="X")
+										{
+											System.out.println("You sunk one of the computers ships!");
+										}
+									else if (Board.board[3][4] =="X" && Board.board[4][4] =="X")
+										{
+											System.out.println("You sunk one of the computers ships!");
+										}
+									else if (Board.board[3][1] =="X")
+										{
+											System.out.println("You sunk one of the computers ships!");
+										}
+									if (Board.board[0][0] =="X" && Board.board[0][1] =="X" && Board.board[0][2] =="X" && Board.board[2][2] =="X" && Board.board[2][3] =="X" && Board.board[3][4] =="X" && Board.board[4][4] =="X" && Board.board[3][1] =="X")
+										{
+											System.out.println("You won! You sunk all of the computer's ships in " + counter/2 + " tries!");
+										}
 									}
-								System.out.println("You sunk all of your opponent's ships!");
-								System.out.println("Good job!");
+								System.out.println("Good job! You sunk all of your opponent's ships!");
 								
 							}
 					}
 			}
-//place x's in the hit places
-//place -'s in the missed places
+
 //fix duplicates
 //how to tell if all sunk
 	}
