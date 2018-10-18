@@ -40,18 +40,14 @@ public class BattleshipRunner
 									{
 									Scanner userInput3 = new Scanner(System.in);
 									System.out.println("What is the row you want to attack?");
-									int counter = 0;
 									int rowInput = userInput3.nextInt();
 									int x = rowInput;
-									counter++;
 									int row;
 									row = rowInput-1;
-									counter++;
 									Scanner userInput4 = new Scanner(System.in);
 									System.out.println("What is the column you want to attack?");
 									int columnInput = userInput4.nextInt();
 									int y = columnInput;
-									counter++;
 									int column;
 									column = columnInput-1;
 									if (rowInput == 1 && columnInput == 1)
@@ -109,33 +105,33 @@ public class BattleshipRunner
 											Board.display();
 											System.out.println("Try again!");
 										}
-									if (Board.board[0][0] =="X" && Board.board[0][1] =="X" && Board.board[0][2] =="X")
+									if (Board.board[0][0].equals("X") && Board.board[0][1].equals("X") && Board.board[0][2].equals("X"))
 										{
-											System.out.println("You sunk one of the computers ships!");
+											System.out.println("You sunk the computers ship!");
 										}
-									else if (Board.board[2][2] =="X" && Board.board[2][3] =="X")
+									else if (Board.board[2][2].equals("X") && Board.board[2][3].equals("X"))
 										{
-											System.out.println("You sunk one of the computers ships!");
+											System.out.println("You sunk the computers ship!");
 										}
-									else if (Board.board[3][4] =="X" && Board.board[4][4] =="X")
+									else if (Board.board[3][4].equals("X") && Board.board[4][4].equals("X"))
 										{
-											System.out.println("You sunk one of the computers ships!");
+											System.out.println("You sunk the computers ship!");
 										}
-									else if (Board.board[3][1] =="X")
+									else if (Board.board[3][1].equals("X"))
 										{
-											System.out.println("You sunk one of the computers ships!");
+											System.out.println("You sunk the computers ship!");
 										}
-									if (Board.board[0][0] =="X" && Board.board[0][1] =="X" && Board.board[0][2] =="X" && Board.board[2][2] =="X" && Board.board[2][3] =="X" && Board.board[3][4] =="X" && Board.board[4][4] =="X" && Board.board[3][1] =="X")
+									if (Board.board[0][0].equals("X") && Board.board[0][1].equals("X") && Board.board[0][2].equals("X") && Board.board[3][4].equals("X") && Board.board[4][4].equals("X") && Board.board[3][1].equals("X"))
 										{
-											System.out.println("You won! You sunk all of the computer's ships in " + counter/2 + " tries!");
+											System.out.println("You sunk all of the computer's ships! You won!");
+											playing = false;
 										}
+								
 									}
-								System.out.println("Good job! You sunk all of your opponent's ships!");
 								
 							}
 					}
 			}
 
-//fix duplicates
-//how to tell if all sunk
+//fix counters
 	}
